@@ -24,7 +24,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void onGoBackClicked(View view){
-
         finish();
     }
 
@@ -32,14 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
         SharedPreferences preferences = getPreferences(MODE_PRIVATE);
         EditText nameText = findViewById(R.id.name_textview);
         EditText statusText = findViewById(R.id.status_textview);
-
-
-
-
-
         nameText.setText(preferences.getString("name", ""));
         statusText.setText(preferences.getString("status", ""));
-
     }
 
     public void saveProfile() {
@@ -49,12 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
         EditText statusText = findViewById(R.id.status_textview);
         editor.putString("name", nameText.getText().toString());
         editor.putString("status", statusText.getText().toString());
-
-
-
-
         editor.apply();
-
     }
 
 
