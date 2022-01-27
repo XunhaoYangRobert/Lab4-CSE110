@@ -1,9 +1,11 @@
-
-
-
-
 1.
-	When we interact with the app, we are interacting with the Activity class. Within that, the method runOnUiThread is called and enqueues some work onto the main UI thread's message queue.
+	In a high-level description, when we interact with the app on the main thread and perform some action, we are sending work to the main UI thread. Behind the scene, we are interacting with the specific activity class. The activity class sends work to the main UI thread by calling the runOnUiThread function.
+
+we utilize the Activity class. Within that, the method runOnUiThread is called, and it submits some work onto the main UI thread's message queue.
 
 2.
-	Blocking the main UI thread means to put too much work on the main thread. We want to avoid this because the UI depends on a functional main thread and when the main UI thread is blocked, it would be unresponsive. If this happens, simply no interaction can take place and we are stuck at one place, horrible user experience.
+	Blocking the main UI thread means putting too much work on the main thread. We want to avoid this because the UI relies on a functional main thread; when the main UI thread is blocked(too busy to handle submitted work), the UI would be unresponsive. If that happens, simply no interaction can take place and the screen is stuck in one place, horrible user experience.
+
+
+3.
+	The runOnUiThread method is used to submit work to the main UI thread. We have to use it when we are not currently on the main UI thread.
